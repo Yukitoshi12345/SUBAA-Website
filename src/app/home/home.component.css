@@ -1,0 +1,5 @@
+.hero {
+  background-image: url('../assets/img/team-photo.png') !important;
+  background-size: cover;
+  background-position: center center;
+}
