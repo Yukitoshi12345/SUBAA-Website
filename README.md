@@ -21,8 +21,12 @@ SO THAT I can stay informed about upcoming events, access resources and articles
 ```
 
 ## Acceptance Criteria
-
+```
+As a...
+```
 ## Technologies Used
+- Angular
+- Bulma
 
 ## Installation Instruction
 
