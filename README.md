@@ -29,6 +29,7 @@ As a...
 - Bulma
 
 ## Installation Instruction
+Step 1: Fork the repository
 
 ## Contributors
 
