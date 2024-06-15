@@ -14,6 +14,12 @@ Welcome to the official website repository for the Sydney University Business An
 
 ## User Story
 
+```
+As a member of the Sydney University Business Analytics Association (SUBAA),
+I WANT to be able to access and interact with a comprehensive website for the association,
+SO THAT I can stay informed about upcoming events, access resources and articles related to business analytics, register for events, and connect with other members efficiently.
+```
+
 ## Acceptance Criteria
 
 ## Technologies Used
