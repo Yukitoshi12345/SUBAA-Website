@@ -28,8 +28,8 @@ SO THAT I can stay informed about upcoming events, access resources and articles
 
 ## Contributors
 
-- Yukitoshi Imaizumi-Zhou (Project Leader)
-- Viraj Karangutkar
+- [Yukitoshi Imaizumi-Zhou](https://github.com/Yukitoshi12345) (Project Leader)
+- [Viraj Karangutkar](https://github.com/VirajKK)
 - Add more here
 
 ## Installation
