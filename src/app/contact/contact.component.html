@@ -5,21 +5,34 @@
     </div>
   </div>
 </section>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <section class="section">
   <div class="container">
     <!-- Contact Form -->
     <form (ngSubmit)="submitForm()">
-      <!-- Name -->
+      <!-- First Name -->
       <div class="field">
-        <label class="label">Name</label>
-        <input type="text" name="name" class="input" [(ngModel)]="name" />
+        <label class="label">First Name</label>
+        <input type="text" name="firstName" class="input" [(ngModel)]="firstName" />
       </div>
 
-      <!-- Email -->
+      <!-- Last Name -->
       <div class="field">
-        <label class="label">Email</label>
+        <label class="label">Last Name</label>
+        <input type="text" name="lastName" class="input" [(ngModel)]="lastName" />
+      </div>
+
+      <!-- Phone Number -->
+      <div class="field">
+        <label class="label">Phone Number</label>
+        <input type="tel" name="phoneNumber" class="input" [(ngModel)]="phoneNumber" />
+      </div>
+
+      <!-- Email ID -->
+      <div class="field">
+        <label class="label">Email ID</label>
         <input type="email" name="email" class="input" [(ngModel)]="email" />
+        <div *ngIf="emailInvalid" class="help is-danger">Invalid email address</div>
       </div>
 
       <!-- Message -->
@@ -32,8 +45,15 @@
         ></textarea>
       </div>
 
+      <!-- Captcha -->
+      <div class="field">
+        <label class="label">Captcha</label>
+        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>   <!-- Need to fill in our Site Key made with SUBAA GMail ID -->
+        <div *ngIf="captchaInvalid" class="help is-danger">Invalid captcha</div>
+      </div>
+
       <!-- Submit Button -->
-      <button type="submit" class="button is-large is-warning">Submit!</button>
+      <button type="submit" class="button is-large is-warning" [disabled]="!emailValid || !captchaValid">Submit!</button>
     </form>
   </div>
 </section>
