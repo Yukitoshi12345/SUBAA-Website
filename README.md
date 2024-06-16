@@ -9,7 +9,7 @@ Welcome to the official website repository for the Sydney University Business An
 - [Technologies Used](#technologies-used)
 - [Installation Instruction](#installation-instruction)
 - [Contributors](#contributors)
-- [Installation](#installation)
+- [Deployed Application](#deployed-application)
 - [License](#license)
 
 ## User Story
@@ -37,7 +37,7 @@ Step 1: Fork the repository
 - [Viraj Karangutkar](https://github.com/VirajKK)
 - Add more here
 
-## Installation
+## Deployed Application
 
 The project was uploaded to [GitHub](https://github.com/) at the following repository:
 [https://github.com/yukitoshi12345/SUBAA-Website/](https://github.com/yukitoshi12345/SUBAA-Website)
