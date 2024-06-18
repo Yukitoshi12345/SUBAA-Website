@@ -1,16 +1,18 @@
-<div class="navbar is-dark">
-  <div class="navbar-brand">
-    <a class="navbar-item">
-      <img src="../assets/img/Logo_Final.png" alt="Logo" />
-    </a>
-  </div>
-
-  <div class="navbar-menu">
-    <div class="navbar-end">
-      <a class="navbar-item" routerLink="/">Home</a>
-      <a class="navbar-item" routerLink="/meet-the-team">Meet the Team</a>
-      <a class="navbar-item" routerLink="/events">Events</a>
-      <a class="navbar-item" routerLink="/contact">Contact Us</a>
+<div class="header">
+  <img src='../../assets/img/Logo_Final.png' alt="Logo" />
+  <button (click)="toggleMenu()">
+    <span class="menu-icon">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </span>
+    <div class="menu" [ngClass]="{'show': menuOpen}">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">SUBAA Team</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Shop</a></li>
+      </ul>
     </div>
-  </div>
+  </button>
 </div>
