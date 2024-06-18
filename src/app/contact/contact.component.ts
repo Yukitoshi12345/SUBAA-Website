@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 declare var grecaptcha: {
   ready: (callback: () => void) => void;
   execute: (siteKey: string, options: { action: string }) => Promise<string>;
@@ -24,29 +26,19 @@ export class ContactComponent implements OnInit {
   emailValid!: boolean;
   captchaValid!: boolean;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void { }
 
-  submitForm(): void {
-    if (this.validateEmail(this.email) && this.validateCaptcha()) {
-      // Form submission logic here
-      console.log('Form submitted successfully!');
-      console.log(`First Name: ${this.firstName}`);
-      console.log(`Last Name: ${this.lastName}`);
-      console.log(`Phone Number: ${this.phoneNumber}`);
-      console.log(`Email: ${this.email}`);
-      console.log(`Message: ${this.message}`);
-    } else {
-      console.log('Please enter a valid email and captcha response');
-    }
-  }
-
+  // Validating Email by sending user an email
   validateEmail(email: string): boolean {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
   }
 
+
+
+  // Code for Captcha Validation
   validateCaptcha() {
     const siteKey = 'YOUR_SITE_KEY';        //Use Site Key created using SUBAA Email ID
     const secretKey = 'YOUR_SECRET_KEY';    //Use Secret Key created using SUBAA Email ID
@@ -58,7 +50,7 @@ export class ContactComponent implements OnInit {
           fetch('/verify-captcha', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ response: token, secret: secretKey }),
+            body: JSON.stringify({response: token}),
           })
             .then((response) => response.json())
             .then((data: { success: boolean }) => {
@@ -78,6 +70,49 @@ export class ContactComponent implements OnInit {
           this.captchaValid = false;
         });
     });
-  return this.captchaValid
+    return this.captchaValid
+  }
+
+
+
+  //Submitting Form after Email Validation and Captcha Validation 
+  submitForm(): void {
+    if (this.validateEmail(this.email) && this.captchaValid) {
+      // Form submission logic here
+      const formData = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        phoneNumber: this.phoneNumber,
+        email: this.email,
+        message: this.message
+      };
+
+      this.http.post('/submit-form', formData)
+        .subscribe(
+          (response: any) => {
+            console.log('Form submitted successfully!');
+            // Reset form fields
+            this.resetForm();
+          },
+          (error: any) => {
+            console.error('Error submitting form:', error);
+          }
+        );
+    } else {
+      console.log('Please enter a valid email and captcha response');
+    }
+  }
+
+  resetForm(): void {
+    this.firstName = '';
+    this.lastName = '';
+    this.phoneNumber = '';
+    this.email = '';
+    this.message = '';
+    this.captcha = '';
+    this.emailInvalid = false;
+    this.captchaInvalid = false;
+    this.emailValid = false;
+    this.captchaValid = false;
   }
 }
