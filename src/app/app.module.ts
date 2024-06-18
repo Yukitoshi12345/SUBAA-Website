@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 import {
   BrowserModule,
   provideClientHydration,
@@ -20,7 +22,7 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     ContactComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
