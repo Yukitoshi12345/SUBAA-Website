@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, withInterceptorsFromDi, provideHttpClient, withFetch } from '@angular/common/http';
 
 import {
   BrowserModule,
@@ -23,7 +23,7 @@ import { ContactComponent } from './contact/contact.component';
     ContactComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), provideHttpClient(withInterceptorsFromDi(), withFetch())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

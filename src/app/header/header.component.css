@@ -1,0 +1,73 @@
+body {
+    background-image: url('../assets/img/team-photo.png'); /* Replace with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+  }
+  
+  .header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+  }
+  
+  .logo {
+    width: 40px; /* Adjust the logo width to your liking */
+    height: 40px; /* Adjust the logo height to your liking */
+    margin-right: 20px; /* Add some space between the logo and the menu button */
+  }
+  
+  .menu-icon {
+    cursor: pointer;
+  }
+  
+  .line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    margin-bottom: 4px;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 60px; /* Adjust the top position to match the header height */
+    right: 0;
+    background-color: #f0f0f0; /* Optional: Add a background color to the menu */
+    padding: 20px;
+    display: none;
+    flex-direction: row; /* Display menu items horizontally */
+  }
+  
+  .menu ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu li {
+    margin-right: 20px; /* Add some space between menu items */
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .show {
+    display: block;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
